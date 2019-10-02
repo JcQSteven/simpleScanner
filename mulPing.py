@@ -12,7 +12,7 @@ import time
 
 class Ping:
     def __init__(self):
-        self.map=[]
+        self.map=[] #map=[{IP:"111"},{IP:"111"}]
 
     def matchDomain(self,domain):
         if re.match(r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
@@ -69,7 +69,7 @@ class Ping:
         if len(domain.split('.'))<=2:
             domain="www."+domain
         url="https://cdn.chinaz.com/ajax/CDNHostIP?host={0}".format(domain)
-        print(url)
+        # print(url)
         r = requests.get(headers=headers,url=url)
         if r.status_code == 200:
             # print(r.text)
